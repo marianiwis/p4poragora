@@ -4,7 +4,7 @@
 
 #include <string>
 #include "DTRefer.h"
-#include "DTRefer.h"
+#include "DTFecha.h"
 
 
 class Publicacion{
