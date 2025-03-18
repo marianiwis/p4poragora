@@ -3,16 +3,18 @@
 
 using namespace std;
 #include <string>
-#include <list>
+#include "Publicacion.h"
+#include <set>
 
 class Libro : public Publicacion{
 
     private: 
         string editorial;
-        list<string> palabrasDestacadas;
+        set<string> palabrasDestacadas;
         
     public:
-    bool contienePalabra(string palabra);
+        Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> palabrasDestacadas);
+        bool contienePalabra(string palabra);
 
 
 };
