@@ -4,6 +4,8 @@
 using namespace std;
 #include <string>
 #include "Publicacion.h"
+#include "DTFecha.h"    
+#include "DTRefer.h"   
 
 class PaginaWeb : public Publicacion{
 
@@ -13,7 +15,8 @@ class PaginaWeb : public Publicacion{
     
     public:
         PaginaWeb(string DOI, string titulo, DTFecha fecha, string url, string contenidoExtraido);
-        bool contienePalabra(string palabra);
+        bool contienePalabra(string palabra) override;
+        DTRefer getDT() override;
 
 
 

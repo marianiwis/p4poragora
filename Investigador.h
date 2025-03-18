@@ -1,8 +1,6 @@
 #ifndef INVESTIGADOR_H
 #define INVESTIGADOR_H
 
-#include <string>
-#include <set>
 #include "DTFecha.h"
 #include "Publicacion.h"
 #include <list>
@@ -20,9 +18,9 @@ class Investigador{
     public:
         Investigador(const string orcid, string nombre, string institucion);
 
-        virtual ~Investigador() = 0;
-        virtual string getORCID() = 0;
-        virtual string toString();
-        virtual set<string> listarPublicaciones(DTFecha desde, string palabra);
+        ~Investigador() = 0;
+        string getORCID() = 0;
+        string toString();
+        set<string> listarPublicaciones(DTFecha desde, string palabra);
 };
 #endif

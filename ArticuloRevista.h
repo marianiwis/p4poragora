@@ -3,6 +3,10 @@
 
 using namespace std;
 #include <string>
+#include "Publicacion.h"
+#include "DTFecha.h"    
+#include "DTRefer.h"     
+
 #include <list>
 
 class ArticuloRevista : public Publicacion{
@@ -13,13 +17,9 @@ class ArticuloRevista : public Publicacion{
     
     public:
         ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto);
-        bool contienePalabra(string palabra);
+        bool contienePalabra(string palabra) override;
+        DTRefer getDT() override;
     
-
-
-        
-
-
 };
 
 #endif

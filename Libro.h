@@ -4,6 +4,8 @@
 using namespace std;
 #include <string>
 #include "Publicacion.h"
+#include "DTFecha.h"    
+#include "DTRefer.h"   
 #include <set>
 
 class Libro : public Publicacion{
@@ -14,8 +16,8 @@ class Libro : public Publicacion{
         
     public:
         Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> palabrasDestacadas);
-        bool contienePalabra(string palabra);
-
+        bool contienePalabra(string palabra) override;
+        DTRefer getDT() override;
 
 };
 

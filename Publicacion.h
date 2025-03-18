@@ -21,14 +21,14 @@ class Publicacion{
         Publicacion(string DOI, string titulo, DTFecha fecha);
         virtual ~Publicacion(){} 
 
-        virtual string getDOI() = 0;
-        virtual string getTitulo() = 0;
-        virtual DTFecha getFecha() = 0;
+        string getDOI() { return DOI; }
+        string getTitulo() { return titulo; }
+        DTFecha getFecha() { return fecha; }
 
         
-        virtual void setDOI(string DOI) = 0;
-        virtual void setTitulo(string Titulo) = 0;
-        virtual void setDOI(DTFecha Fecha) = 0;
+        void setDOI(string doi) { DOI = doi; }
+        void setTitulo(string tit) { titulo = tit; }
+        void setFecha(DTFecha f) { fecha = f; }
 
         
         virtual DTRefer getDT() = 0;
