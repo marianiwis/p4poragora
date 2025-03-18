@@ -3,6 +3,7 @@
 
 using namespace std;
 #include <string>
+#include "Publicacion.h"
 
 class PaginaWeb : public Publicacion{
 
@@ -11,7 +12,8 @@ class PaginaWeb : public Publicacion{
         string contenidoExtraido;
     
     public:
-    bool contienePalabra(string palabra);
+        PaginaWeb(string DOI, string titulo, DTFecha fecha, string url, string contenidoExtraido);
+        bool contienePalabra(string palabra);
 
 
 

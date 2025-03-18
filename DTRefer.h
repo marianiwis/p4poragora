@@ -3,14 +3,19 @@
 
 #include <string>
 #include <set>
+#include "DTFecha.h"
 
-class DTFecha; //foward declaration para optimizar y no importar todas las funciones
+using namespace std;
+
 
 typedef struct DTRefer{
-    std::string DOI;
-    std::string titulo;
+    string DOI;
+    string titulo;
     DTFecha fecha;
-    std::set<std::string> autores;
+    set<string> autores;
+
+    DTRefer(string DOI, string titulo, DTFecha fecha, set<string> autores);
+    string toString() const;
 
 };
 
