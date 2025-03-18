@@ -3,6 +3,8 @@
 #ifndef DTFECHA
 #define DTFECHA
 
+using namespace std;
+
 class DTFecha{
     private: 
         int dia;
