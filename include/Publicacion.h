@@ -30,7 +30,7 @@ class Publicacion{
         virtual void setDOI(DTFecha Fecha) = 0;
 
         //funciones que vienen del DCD
-        virtual void getDT() = 0;
+        virtual DTRefer getDT() = 0;
         virtual bool contienePalabra(std::string palabra) = 0;
 
         virtual ~Publicacion(){} //Destructor virtual
