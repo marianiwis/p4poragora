@@ -1,22 +1,19 @@
-#ifndef DTREFER
-#define DTREFER
+#ifndef DTREFER_H
+#define DTREFER_H
 
 #include <string>
 #include <set>
-#include "DTFecha.h"
+#include <iostream>
 
-using namespace std;
+class DTFecha;
 
-
-typedef struct DTRefer{
-    string DOI;
-    string titulo;
-    DTFecha fecha;
-    set<string> autores;
-
-    DTRefer(string DOI, string titulo, DTFecha fecha, set<string> autores);
-    string toString() const;
-
+struct DTRefer{
+        std::string doi, titulo;
+        DTFecha fecha;
+        std::set<std::string> autores;
+    
+        DTRefer(std::string doi, std::string titulo, const DTFecha fecha, std::set<std::string> autores);
+        friend std::ostream& operator<<(std::ostream& os, const DTRefer& dt);
 };
 
 #endif

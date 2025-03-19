@@ -1,69 +1,22 @@
 #include "DTFecha.h"
-DTFecha::DTFecha(int dia, int mes, int anio){
-    this->dia = dia;
-    this->mes = mes;
-    this->anio = anio;
+
+DTFecha::DTFecha(int d, int m, int a) : dia(d), mes(m), anio(a) {};
+
+bool DTFecha::operator<(const DTFecha& fecha) const {
+    if (anio != fecha.anio) return anio < fecha.anio;
+    if (mes != fecha.mes) return mes < fecha.mes;
+    return dia < fecha.dia;
 };
 
-
-int DTFecha::getDia(){
-    return this->dia;
-};
-void DTFecha::setDia(int dia){
-    this->dia = dia;
-};
-int DTFecha::getMes(){
-    return this->mes;
-};
-void DTFecha::setMes(int mes){
-    this->mes = mes;
-};
-int DTFecha::getAnio(){
-    return this->anio;
-};
-void DTFecha::setAnio(int anio){
-    this->anio = anio;
+bool DTFecha::operator>(const DTFecha& fecha) const {
+    return fecha < *this;
 };
 
-bool DTFecha::operator<(DTFecha fecha){
-    if(this->anio < fecha->anio){
-        return true;
-    }else if(this->anio != fecha->anio){
-        return false;
-    }
-    if(this->mes < fecha->mes){
-        return true;
-    }else if(this->mes != fecha->mes){
-        return false;
-    }
-    if(this->dia < fecha->dia){
-        return true;
-    }else if(this->dia != fecha->dia){
-        return false;
-    }
-    return false;
-    
-};
+bool DTFecha::operator==(const DTFecha& fecha) const {
+    return anio == fecha.anio && mes == fecha.mes && dia == fecha.dia;
+}
 
-bool DTFecha::operator>(DTFecha fecha){
-    if(this->anio > fecha->anio){
-        return true;
-    }else if(this->anio != fecha->anio){
-        return false;
-    }
-    if(this->mes > fecha->mes){
-        return true;
-    }else if(this->mes != fecha->mes){
-        return false;
-    }
-    if(this->dia > fecha->dia){
-        return true;
-    }else if(this->dia != fecha->dia){
-        return false;
-    }
-    return false;
-};
-
-bool DTFecha::operator==(DTFecha fecha){
-    return (this->anio == fecha->anio) && (this->mes == fecha->mes) && (this->dia == fecha->dia);
-};
+std::ostream& operator<<(std::ostream &os, const DTFecha &fecha) {
+    os << fecha.dia << "/" << fecha.mes << "/" << fecha.anio;
+    return os;
+}
