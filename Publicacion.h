@@ -5,13 +5,15 @@
 #include <string>
 #include "DTRefer.h"
 #include "DTFecha.h"
+#include "Investigador.h"
 
 
 class Publicacion{
     protected:
-        std::string DOI;        //DOI string
-        std::string Titulo;     //titulo string
-        DTFecha Fecha;          //datatype DTFecha fecha
+        const std::string DOI;        //DOI string
+        std::string titulo;     //titulo string
+        DTFecha fecha;          //datatype DTFecha fecha
+        std::set<Investigador*> investigadores;
 
     public:
         //Constructor
@@ -30,7 +32,7 @@ class Publicacion{
         void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
-        void getDT();
+        DTRefer Publicacion::getDT();
 
         //metodos necesariamente virtuales
         virtual bool contienePalabra(std::string palabra) = 0;

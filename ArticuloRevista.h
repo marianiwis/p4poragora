@@ -9,7 +9,7 @@ private:
     std::string revista, extracto;
 public:
     ArticuloRevista(const std::string& doi, const std::string& titulo, const DTFecha& fecha, const std::string& revista, const std::string& extracto);
-    virtual bool contienePalabra(const std::string& palabra) const override;
+    bool contienePalabra(const std::string& palabra) const;
 };
 
 #endif
