@@ -1,14 +1,32 @@
 #include "DTRefer.h"
 #include "DTFecha.h"
 
-DTRefer::DTRefer(std::string d, std::string t, DTFecha f, std::set<std::string> a) : doi(d), titulo(t), fecha(f), autores(a) {}
+using namespace std;
 
-std::ostream& operator<<(std::ostream& os, const DTRefer& dt) {
-    os << dt.doi << "->" << dt.titulo << "(" << dt.fecha << ")/";
+DTRefer::DTRefer(string d, string t, DTFecha f, set<string> a) : doi(d), titulo(t), fecha(f), autores(a) {}
+
+string DTRefer::getDoi() const {
+    return doi;
+}
+
+string DTRefer::getTitulo() const {
+    return titulo;
+}
+
+DTFecha DTRefer::getFecha() const {
+    return fecha;
+}
+
+const set<string>& DTRefer::getAutores() const {
+    return autores;
+}
+
+ostream& operator<<(ostream& os, const DTRefer& dt) {
+    os << dt.getDoi() << "->" << dt.getTitulo() << "(" << dt.getFecha() << ")/";
 
     bool coma = false;
-    for (std::set<std::string>::const_iterator iterador = dt.autores.begin(); iterador != dt.autores.end(); ++iterador) {
-        if (coma) os << ",";
+    for (set<string>::const_iterator iterador = dt.getAutores().begin(); iterador != dt.getAutores().end(); ++iterador) {
+        if (coma) os << ", ";
         os << *iterador;
         coma = true;
     }

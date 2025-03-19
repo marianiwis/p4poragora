@@ -1,17 +1,19 @@
 #include "Investigador.h"
 #include "Publicacion.h"
 
-Investigador::Investigador(const std::string& o, const std::string& n, const std::string& i) : ORCID(o), nombre(n), institucion(i) {}
+using namespace std;
 
-std::string Investigador::getORCID() const {
+Investigador::Investigador(const string& o, const string& n, const string& i) : ORCID(o), nombre(n), institucion(i) {}
+
+string Investigador::getORCID() const {
     return ORCID;
 }
 
-std::string Investigador::getNombre() const {
+string Investigador::getNombre() const {
     return nombre;
 }
 
-std::string Investigador::getInstitucion() const {
+string Investigador::getInstitucion() const {
     return institucion;
 }
 
@@ -19,14 +21,16 @@ void Investigador::agregarPublicacion(Publicacion* pub){
     publicaciones.insert(pub);
 }
 
-std::set<std::string> Investigador::listarPublicaciones(const DTFecha& desde, const std::string& palabra) const {
-    std::set<std::string> resultados;
-    for(Publicacion* pub : publicaciones)
-        if(pub->getFecha() > desde && pub->contienePalabra(palabra))
+set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string& palabra) const {
+    set<string> resultados;
+    for (set<Publicacion*>::const_iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+        Publicacion* pub = *it;
+        if (pub->getFecha() > desde && pub->contienePalabra(palabra))
             resultados.insert(pub->getDOI());
+    }
     return resultados;
 }
 
-std::string Investigador::toString() const {
+string Investigador::toString() const {
     return ORCID + "->" + nombre + "/" + institucion;
 }

@@ -1,13 +1,15 @@
 #include "Publicacion.h"
 #include "Investigador.cpp"
 
-Publicacion::Publicacion(const std::string d, const std::string t, const DTFecha f) : doi(d), titulo(t), fecha(f) {}
+using namespace std;
 
-std::string Publicacion::getDOI() const {
+Publicacion::Publicacion(const string d, const string t, const DTFecha f) : doi(d), titulo(t), fecha(f) {}
+
+string Publicacion::getDOI() const {
     return doi;
 }
 
-std::string Publicacion::getTitulo() const{
+string Publicacion::getTitulo() const{
     return titulo;
 }
 

@@ -1,25 +1,15 @@
-#ifndef ARTICULOREVISTA.H
-#define ARTICULOREVISTA.H
+#ifndef ARTICULOREVISTA_H
+#define ARTICULOREVISTA_H
 
-using namespace std;
-#include <string>
 #include "Publicacion.h"
-#include "DTFecha.h"    
-#include "DTRefer.h"     
+#include <string>
 
-#include <list>
-
-class ArticuloRevista : public Publicacion{
-
-    private: 
-        string revista;
-        string extracto;
-    
-    public:
-        ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto);
-        bool contienePalabra(string palabra) override;
-        DTRefer getDT() override;
-    
+class ArticuloRevista : public Publicacion {
+private:
+    std::string revista, extracto;
+public:
+    ArticuloRevista(const std::string& doi, const std::string& titulo, const DTFecha& fecha, const std::string& revista, const std::string& extracto);
+    virtual bool contienePalabra(const std::string& palabra) const override;
 };
 
 #endif
