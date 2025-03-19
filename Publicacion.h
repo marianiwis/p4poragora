@@ -3,17 +3,17 @@
 #define PUBLICACION_H
 
 #include <string>
+#include <map>
 #include "DTRefer.h"
 #include "DTFecha.h"
 #include "Investigador.h"
-
 
 class Publicacion{
     protected:
         const std::string DOI;        //DOI string
         std::string titulo;     //titulo string
         DTFecha fecha;          //datatype DTFecha fecha
-        std::set<Investigador*> investigadores;
+        std::map<std::string, Investigador*> investigadores;
 
     public:
         //Constructor
@@ -33,6 +33,9 @@ class Publicacion{
 
         //funciones que vienen del DCD
         DTRefer Publicacion::getDT();
+
+        void agregarAutor(Investigador* investigador);
+        void eliminarAutor(Investigador* investigador);
 
         //metodos necesariamente virtuales
         virtual bool contienePalabra(std::string palabra) = 0;

@@ -1,5 +1,5 @@
 #include "Publicacion.h"
-#include "Investigador.cpp"
+#include "Investigador.h"
 
 using namespace std;
 
@@ -17,3 +17,12 @@ DTRefer Publicacion::getDT(){
     std::set<std::string> autores;
     return DTRefer(DOI, titulo, fecha, autores);
 }
+
+void agregarAutor(Investigador* investigador){
+    investigadores[investigador->getORCID()] = investigador;
+    
+};
+
+void eliminarAutor(Investigador* investigador){
+    this->investigadores.erase(investigador->getORCID());
+};
