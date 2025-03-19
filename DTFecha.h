@@ -1,31 +1,29 @@
-//.h de datatype DTFecha
+#ifndef DTFECHA_H
+#define DTFECHA_H
 
-#ifndef DTFECHA
-#define DTFECHA
+#include <iostream>
 
-class DTFecha{
-    private: 
-        int dia;
-        int mes;
-        int anio;
+class DTFecha {
+    private:
+        int dia, mes, anio;
+    
     public:
-        DTFecha(int dia, int mes, int anio); //constructor
-        ~Publicacion(); //destructor
-
-        //sobrecarga de operadores
-        bool operator<(DTFecha fecha); //operador < (menor que)
-        bool operator>(DTFecha fecha); //operador > (mayor que)
-        bool operator==(DTFecha fecha); //operador == (igual que)
-
-        //getters y setters
-        int getDia();
+        DTFecha(int dia, int mes, int anio);
+        
+        int getDia() const;
+        int getMes() const;
+        int getAnio() const;
+        
         void setDia(int dia);
-        int getMes();
         void setMes(int mes);
-        int getAnio();
         void setAnio(int anio);
+        
+        //sobrecarga de operadores, ver si de verdad es necesario que sean punteros
+        bool operator<(const DTFecha& fecha) const;
+        bool operator>(const DTFecha& fecha) const;
+        bool operator==(const DTFecha& fecha) const;
+};
 
-}
-
+std::ostream& operator<<(std::ostream& os, const DTFecha& fecha);
 
 #endif

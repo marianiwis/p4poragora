@@ -3,15 +3,17 @@
 #define PUBLICACION_H
 
 #include <string>
+#include <map>
 #include "DTRefer.h"
 #include "DTFecha.h"
-
+#include "Investigador.h"
 
 class Publicacion{
     protected:
-        std::string DOI;        //DOI string
-        std::string Titulo;     //titulo string
-        DTFecha Fecha;          //datatype DTFecha fecha
+        const std::string DOI;        //DOI string
+        std::string titulo;     //titulo string
+        DTFecha fecha;          //datatype DTFecha fecha
+        std::map<std::string, Investigador*> investigadores;
 
     public:
         //Constructor
@@ -21,19 +23,24 @@ class Publicacion{
 
         //Metodos og
         //getters
-        virtual std::string getDOI() = 0;
-        virtual std::string getTitulo() = 0;
-        virtual DTFecha getFecha() = 0;
+        std::string getDOI() const;
+        std::string getTitulo() const;
+        DTFecha getFecha() const;
         //setters
-        virtual void setDOI(std::string DOI) = 0;
-        virtual void setTitulo(std::string Titulo) = 0;
-        virtual void setDOI(DTFecha Fecha) = 0;
+        void setDOI(std::string DOI);
+        void setTitulo(std::string Titulo);
+        void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
-        virtual void getDT() = 0;
+        DTRefer Publicacion::getDT();
+
+        void agregarAutor(Investigador* investigador);
+        void eliminarAutor(Investigador* investigador);
+
+        //metodos necesariamente virtuales
         virtual bool contienePalabra(std::string palabra) = 0;
 
-        virtual ~Publicacion(){} //Destructor virtual
+        virtual ~Publicacion() = 0;//Destructor virtual
 
 };
 
