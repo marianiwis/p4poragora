@@ -5,11 +5,11 @@ using namespace std;
 
 Publicacion::Publicacion(const string d, const string t, const DTFecha f) : DOI(d), titulo(t), fecha(f) {}
 
-string Publicacion::getDOI() const {
+string Publicacion::getDOI(){
     return DOI;
 }
 
-string Publicacion::getTitulo() const{
+string Publicacion::getTitulo(){
     return titulo;
 }
 

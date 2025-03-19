@@ -2,26 +2,30 @@
 #define INVESTIGADOR
 
 #include <string>
-#include <set>
+#include <map>
 #include "DTFecha.h"
 #include "Publicacion.h"
 
+using namespace std;
+//el const en public hace que las funciones sean constantes no sus resultados
+ 
 class Investigador{
     private:
-        const std::string ORCID;
-        std::string nombre, institucion;
-        std::set<Publicacion*> publicaciones;
+        const string ORCID;
+        string nombre, institucion;
+        map<string, Publicacion*> publicaciones;
     public:
-        Investigador(const std::string& ORCID, const std::string& nombre, const std::string& institucion);
+        Investigador(const string& ORCID, const string& nombre, const string& institucion);
 
-        std::string getORCID() const;
-        std::string getNombre() const;
-        std::string getInstitucion() const;
+        string getORCID() const;
+        string getNombre() const;
+        string getInstitucion() const;
 
         void agregarPublicacion(Publicacion* pub);
+        void eliminarPublicacion(Publicacion* pub);
 
-        std::string toString() const;
-        std::set<std::string> listarPublicaciones(const DTFecha& desde, const std::string& palabra) const;
+        string toString() const;
+        set<string> listarPublicaciones(const DTFecha& desde, const string& palabra);
 };
 
 

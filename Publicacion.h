@@ -7,40 +7,41 @@
 #include "DTRefer.h"
 #include "DTFecha.h"
 #include "Investigador.h"
+using namespace std;
 
 class Publicacion{
     protected:
-        const std::string DOI;        //DOI string
-        std::string titulo;     //titulo string
+        const string DOI;        //DOI string
+        string titulo;          //titulo string
         DTFecha fecha;          //datatype DTFecha fecha
-        std::map<std::string, Investigador*> investigadores;
+        map<string, Investigador*> investigadores;
 
     public:
         //Constructor
-        Publicacion(std::string DOI, std::string titulo, DTFecha fecha);
+        Publicacion(string DOI, string titulo, DTFecha fecha);
 
         //Metodos virtuales puros los dejo a ver
 
         //Metodos og
         //getters
-        std::string getDOI() const;
-        std::string getTitulo() const;
-        DTFecha getFecha() const;
+        virtual string getDOI();
+        virtual string getTitulo();
+        virtual DTFecha getFecha();
         //setters
-        void setDOI(std::string DOI);
-        void setTitulo(std::string Titulo);
-        void setDOI(DTFecha Fecha);
+        virtual void setDOI(string DOI);
+        virtual void setTitulo(string Titulo);
+        virtual void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
         DTRefer Publicacion::getDT();
 
-        void agregarAutor(Investigador* investigador);
-        void eliminarAutor(Investigador* investigador);
+        virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
+        virtual void eliminarAutor(Investigador* investigador);
 
         //metodos necesariamente virtuales
-        virtual bool contienePalabra(std::string palabra) = 0;
+        virtual bool contienePalabra(string palabra) = 0;
 
-        virtual ~Publicacion() = 0;//Destructor virtual
+        virtual ~Publicacion() = 0;                         //Destructor virtual
 
 };
 

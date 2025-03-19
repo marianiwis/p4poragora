@@ -27,8 +27,10 @@ void DTFecha::setAnio(int a) {
 }
 
 bool DTFecha::operator<(const DTFecha& fecha) const {
-    if (anio != fecha.anio) return anio < fecha.anio;
-    if (mes != fecha.mes) return mes < fecha.mes;
+    if (anio != fecha.anio) 
+        return anio < fecha.anio;
+    if (mes != fecha.mes) 
+        return mes < fecha.mes;
     return dia < fecha.dia;
 }
 
@@ -37,9 +39,10 @@ bool DTFecha::operator>(const DTFecha& fecha) const {
 }
 
 bool DTFecha::operator==(const DTFecha& fecha) const {
-    return anio == fecha.anio && mes == fecha.mes && dia == fecha.dia;
+    return (anio == fecha.anio) && (mes == fecha.mes) && (dia == fecha.dia);
 }
 
+//sobrecarga de operador para fecha
 std::ostream& operator<<(std::ostream &os, const DTFecha &fecha) {
     os << fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio();
     return os;
