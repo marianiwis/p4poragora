@@ -21,19 +21,21 @@ class Publicacion{
 
         //Metodos og
         //getters
-        virtual std::string getDOI() = 0;
-        virtual std::string getTitulo() = 0;
-        virtual DTFecha getFecha() = 0;
+        std::string getDOI() const;
+        std::string getTitulo() const;
+        DTFecha getFecha() const;
         //setters
-        virtual void setDOI(std::string DOI) = 0;
-        virtual void setTitulo(std::string Titulo) = 0;
-        virtual void setDOI(DTFecha Fecha) = 0;
+        void setDOI(std::string DOI);
+        void setTitulo(std::string Titulo);
+        void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
-        virtual void getDT() = 0;
+        void getDT();
+
+        //metodos necesariamente virtuales
         virtual bool contienePalabra(std::string palabra) = 0;
 
-        virtual ~Publicacion(){} //Destructor virtual
+        virtual ~Publicacion() = 0;//Destructor virtual
 
 };
 
