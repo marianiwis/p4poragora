@@ -18,11 +18,10 @@ DTRefer Publicacion::getDT(){
     return DTRefer(DOI, titulo, fecha, autores);
 }
 
-void agregarAutor(Investigador* investigador){
+void Publicacion::agregarAutor(Investigador* investigador) {
     investigadores[investigador->getORCID()] = investigador;
-    
-};
+}
 
-void eliminarAutor(Investigador* investigador){
-    this->investigadores.erase(investigador->getORCID());
-};
+void Publicacion::eliminarAutor(Investigador* investigador) {
+    investigadores.erase(investigador->getORCID());
+}
