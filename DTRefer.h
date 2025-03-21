@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include <iostream>
+#include "DTFecha.h"
 
 class DTFecha;
 

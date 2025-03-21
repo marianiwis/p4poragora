@@ -1,5 +1,4 @@
 #include "DTRefer.h"
-#include "DTFecha.h"
 
 using namespace std;
 
@@ -25,6 +24,7 @@ ostream& operator<<(ostream& os, const DTRefer& dt) {
     os << dt.getDoi() << "->" << dt.getTitulo() << "(" << dt.getFecha() << ")/";
 
     bool coma = false;
+    //Ver si se puede usar const_iterator o hay que usar otra cosa.
     for (set<string>::const_iterator iterador = dt.getAutores().begin(); iterador != dt.getAutores().end(); ++iterador) {
         if (coma) os << ", ";
         os << *iterador;

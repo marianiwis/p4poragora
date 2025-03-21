@@ -1,5 +1,5 @@
-#ifndef INVESTIGADOR
-#define INVESTIGADOR
+#ifndef INVESTIGADOR_H
+#define INVESTIGADOR_H
 
 #include <string>
 #include <set>
@@ -23,8 +23,5 @@ class Investigador{
         std::string toString() const;
         std::set<std::string> listarPublicaciones(const DTFecha& desde, const std::string& palabra) const;
 };
-
-
-
 
 #endif
