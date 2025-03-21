@@ -5,6 +5,18 @@ using namespace std;
 
 Investigador::Investigador(const string& o, const string& n, const string& i) : ORCID(o), nombre(n), institucion(i) {}
 
+Investigador::~Investigador(){
+    std::map<string, Publicacion*>::iterator it;
+
+    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+        Publicacion* pub = it->second;
+        pub.eliminarPublicacion(this)
+    }
+
+    //detalle que me acabo de acordar: hay que despues hacer un metodo para borrar del map de main
+}
+
+
 string Investigador::getORCID() const {
     return ORCID;
 }

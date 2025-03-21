@@ -16,6 +16,7 @@ class Investigador{
         map<string, Publicacion*> publicaciones;
     public:
         Investigador(const string& ORCID, const string& nombre, const string& institucion);
+        ~Investigador();
 
         string getORCID() const;
         string getNombre() const;
