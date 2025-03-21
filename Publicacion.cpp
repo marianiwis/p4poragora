@@ -13,15 +13,27 @@ string Publicacion::getTitulo(){
     return titulo;
 }
 
+DTFecha Publicacion::getFecha(){
+    return fecha;
+}
+
 DTRefer Publicacion::getDT(){
     std::set<std::string> autores;
+    std::map<string, Investigador*>::iterator it;
+
+    for (it = autores.begin(); it != autores.end(); ++it) {
+        autores.insert(it->second)
+    }
+
     return DTRefer(DOI, titulo, fecha, autores);
 }
 
 void Publicacion::agregarAutor(Investigador* investigador) {
-    investigadores[investigador->getORCID()] = investigador;
+    investigadores.insert(std::make_pair(investigador->getORCID(), investigador));
+    investigador.agregarAutor(this); //bidireccionalidad
 }
 
 void Publicacion::eliminarAutor(Investigador* investigador) {
     investigadores.erase(investigador->getORCID());
+    investigador.eliminarAutor(this); //bidireccionalidad
 }

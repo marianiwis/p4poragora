@@ -18,16 +18,15 @@ string Investigador::getInstitucion() const {
 }
 
 void Investigador::agregarPublicacion(Publicacion* publicacion) {
-    publicaciones[publicacion->getDOI()] = publicacion;
+    publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion))
+    
 }
 
 void Investigador::eliminarPublicacion(Publicacion* publicacion) {
-    publicaciones[publicacion->getDOI()] = publicacion;
+    publicaciones.erase(publicacion->getDOI());
+    
 }
 
-
-
-//to do: refactorizar para usar map
 //comentario mari: no me gustan los const antes de las variables que pasamos por las funciones
 set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string& palabra){
     set<string> resultados;
@@ -40,18 +39,6 @@ set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string
     }
     return resultados;
 }
-
-//ex codigo con set publicaciones
-    /*
-    for (set<Publicacion*>::const_iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
-        Publicacion* pub = *it;
-        if (pub->getFecha() > desde && pub->contienePalabra(palabra))
-            resultados.insert(pub->getDOI());
-    }
-    return resultados;
-    */
-    
-
 
 string Investigador::toString() const {
     return ORCID + "->" + nombre + "/" + institucion;
