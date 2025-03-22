@@ -1,16 +1,21 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "w64devkit",
+            "compilerPath": "C:/Users/Santiago/Desktop/w64devkit/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++98",
+            "intelliSenseMode": "gcc-x64",
             "includePath": [
+                "C:/Users/Santiago/Desktop/w64devkit/include",
                 "${workspaceFolder}/**"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compilerPath": "C:\\Users\\Santiago\\Desktop\\w64devkit\\bin\\g++.exe"
+            "browse": {
+                "path": [
+                    "C:/Users/Santiago/Desktop/w64devkit/include",
+                    "${workspaceFolder}"
+                ]
+            }
         }
     ],
     "version": 4
