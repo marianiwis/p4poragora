@@ -1,5 +1,4 @@
 #include "Investigador.h"
-#include "Publicacion.h"
 
 using namespace std;
 

@@ -3,26 +3,28 @@
 
 #include <string>
 #include <set>
-#include "DTRefer.h"
+#include <map>
 #include "DTFecha.h"
+#include "DTRefer.h"
+#include "Investigador.h"
 
-class Investigador;
+class Publicacion {
+protected:
+    std::string DOI, titulo;
+    DTFecha fecha;
+    std::map<std::string, Investigador*> investigadores;
 
-class Publicacion{
-    protected:
-        std::string doi, titulo;
-        DTFecha fecha;
-        std::set<std::string>* autores;
-    public:
-        Publicacion(std::string doi, std::string titulo, const DTFecha& fecha);
-        virtual ~Publicacion() = default;
+public:
+    Publicacion(const std::string d, const std::string t, const DTFecha f);
+    virtual ~Publicacion() = 0;
 
-        std::string getDOI() const;
-        std::string getTitulo() const;
-        DTFecha getFecha() const;
+    std::string getDOI() const;
+    std::string getTitulo() const;
+    DTFecha getFecha() const;
+    DTRefer getDT();
 
-        DTRefer getDT() const;
-        void agregarAutor(const std::string& autor);
-        virtual bool contienePalabra(const std::string& palabra) const = 0;
+    void agregarAutor(Investigador* investigador);
+    void eliminarAutor(Investigador* investigador);
+    virtual bool contienePalabra(const std::string& palabra) const = 0;
 };
 #endif
