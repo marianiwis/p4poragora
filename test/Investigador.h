@@ -3,8 +3,11 @@
 
 #include <string>
 #include <map>
+#include <set>
 #include "DTFecha.h"
 #include "Publicacion.h"
+
+class Publicacion;
 
 using namespace std;
 //el const en public hace que las funciones sean constantes no sus resultados

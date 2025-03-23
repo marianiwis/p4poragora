@@ -9,6 +9,8 @@
 #include "Investigador.h"
 using namespace std;
 
+class Investigador;
+
 class Publicacion{
     protected:
         const string DOI;        //DOI string
@@ -24,12 +26,13 @@ class Publicacion{
 
         //Metodos og
         //getters
+         string getDOI();
          string getTitulo();
          DTFecha getFecha();
         //setters
          void setDOI(string DOI);
          void setTitulo(string Titulo);
-         void setFecha(DTFecha Fecha);
+         void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
         DTRefer getDT();
