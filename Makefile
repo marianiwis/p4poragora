@@ -1,37 +1,31 @@
 # Variables
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++98
-OBJFILES = Main.o DTFecha.o DTRefer.o Investigador.o Publicacion.o Articulo.o Libro.o PaginaWeb.o
+CXXFLAGS = -Wall -Wextra -std=c++98 -Iinclude  # Se agrega -Iinclude para que busque los headers
+SRC_DIR = src
+OBJ_DIR = obj
+INCLUDE_DIR = include
+
+# Lista de archivos fuente
+SRCFILES = $(SRC_DIR)/Main.cpp $(SRC_DIR)/DTFecha.cpp $(SRC_DIR)/DTRefer.cpp \
+           $(SRC_DIR)/Investigador.cpp $(SRC_DIR)/Publicacion.cpp \
+           $(SRC_DIR)/Articulo.cpp $(SRC_DIR)/Libro.cpp $(SRC_DIR)/PaginaWeb.cpp
+
+# Generar los archivos objeto correspondientes
+OBJFILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCFILES))
 
 # Ejecutable final
 mi_programa: $(OBJFILES)
 	$(CXX) $(CXXFLAGS) -o mi_programa $(OBJFILES)
 
-# Reglas de compilación
-Main.o: Main.cpp DTFecha.h DTRefer.h Investigador.h Publicacion.h Articulo.h Libro.h PaginaWeb.h
-	$(CXX) $(CXXFLAGS) -c Main.cpp
+# Reglas de compilación de cada archivo .cpp a .o
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCLUDE_DIR)/%.h | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-DTFecha.o: DTFecha.cpp DTFecha.h
-	$(CXX) $(CXXFLAGS) -c DTFecha.cpp
+# Crear la carpeta obj si no existe
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-DTRefer.o: DTRefer.cpp DTRefer.h
-	$(CXX) $(CXXFLAGS) -c DTRefer.cpp
-
-Investigador.o: Investigador.cpp Investigador.h
-	$(CXX) $(CXXFLAGS) -c Investigador.cpp
-
-Publicacion.o: Publicacion.cpp Publicacion.h
-	$(CXX) $(CXXFLAGS) -c Publicacion.cpp
-
-Articulo.o: Articulo.cpp Articulo.h
-	$(CXX) $(CXXFLAGS) -c Articulo.cpp
-
-Libro.o: Libro.cpp Libro.h
-	$(CXX) $(CXXFLAGS) -c Libro.cpp
-
-PaginaWeb.o: PaginaWeb.cpp PaginaWeb.h
-	$(CXX) $(CXXFLAGS) -c PaginaWeb.cpp
-
-# Limpieza de archivos compilados
+# Limpiar archivos compilados
 clean:
-	rm -f mi_programa $(OBJFILES)
+	rm -f mi_programa $(OBJ_DIR)/*.o
+
