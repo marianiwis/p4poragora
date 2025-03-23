@@ -28,12 +28,14 @@ DTRefer Publicacion::getDT(){
     return DTRefer(DOI, titulo, fecha, autores);
 }
 
+//uso insert para evitar sobreescritura 
 void Publicacion::agregarAutor(Investigador* investigador) {
-    investigadores.insert(std::make_pair(investigador->getORCID(), investigador));
+    investigadores.insert(std::make_pair(investigador->getORCID(), investigador)); //insert god
     investigador->agregarPublicacion(this); //bidireccionalidad
 }
 
+//idem eliminacion
 void Publicacion::eliminarAutor(Investigador* investigador) {
-    investigadores.erase(investigador->getORCID());
+    investigadores.erase(investigador->getORCID()); //idem de funcionalidad del insert
     investigador->eliminarPublicacion(this); // bidireccionalidad
 }
