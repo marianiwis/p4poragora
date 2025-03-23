@@ -1,5 +1,5 @@
-#ifndef INVESTIGADOR_H
-#define INVESTIGADOR_H
+#ifndef INVESTIGADOR
+#define INVESTIGADOR
 
 #include <string>
 #include <map>
@@ -31,5 +31,8 @@ class Investigador{
         string toString() const;
         set<string> listarPublicaciones(const DTFecha& desde, const string& palabra);
 };
+
+
+
 
 #endif

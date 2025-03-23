@@ -6,37 +6,49 @@
 #include "DTRefer.h"
 #include "DTFecha.h"
 #include "Investigador.h"
+using namespace std;
+
+class Investigador;
 
 class Publicacion{
     protected:
-        const std::string DOI;
-        std::string titulo;
-        DTFecha fecha;
-        std::map<std::string, Investigador*> investigadores;
+
+        const string DOI;        //DOI string
+        string titulo;          //titulo string
+        DTFecha fecha;          //datatype DTFecha fecha
+        map<string, Investigador*> investigadores;
+
 
     public:
         //Constructor
-        Publicacion(std::string DOI, std::string titulo, DTFecha fecha);
+        Publicacion(string DOI, string titulo, DTFecha fecha);
 
-        //Getters
-        std::string getDOI() const;
-        std::string getTitulo() const;
-        DTFecha getFecha() const;
 
-        //Setters
-        void setDOI(std::string DOI);
-        void setTitulo(std::string Titulo);
-        void setDOI(DTFecha Fecha);
+        //Metodos virtuales puros los dejo a ver
 
-        //Funciones que vienen del DCD
-        DTRefer Publicacion::getDT();
+        //Metodos og
+        //getters
+        virtual string getDOI();
+        virtual string getTitulo();
+        virtual DTFecha getFecha();
+        //setters
+        virtual void setDOI(string DOI);
+        virtual void setTitulo(string Titulo);
+        virtual void setDOI(DTFecha Fecha);
 
-        void agregarAutor(Investigador* investigador);
-        void eliminarAutor(Investigador* investigador);
+        //funciones que vienen del DCD
+        DTRefer getDT();
 
-        //Metodos necesariamente virtuales
-        virtual bool contienePalabra(std::string palabra) = 0;
-        virtual ~Publicacion() = 0;
+
+        virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
+        virtual void eliminarAutor(Investigador* investigador);
+
+
+        //metodos necesariamente virtuales
+        virtual bool contienePalabra(string palabra) = 0;
+        virtual ~Publicacion() = 0;                         //Destructor virtual
+
+
 };
 
 #endif
