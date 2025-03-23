@@ -9,6 +9,8 @@
 #include "Investigador.h"
 using namespace std;
 
+class Investigador;
+
 class Publicacion{
     protected:
         const string DOI;        //DOI string
@@ -33,7 +35,7 @@ class Publicacion{
         virtual void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
-        DTRefer Publicacion::getDT();
+        DTRefer getDT();
 
         virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
         virtual void eliminarAutor(Investigador* investigador);

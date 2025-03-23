@@ -22,7 +22,7 @@ DTRefer Publicacion::getDT(){
     std::map<string, Investigador*>::iterator it;
 
     for (it = investigadores.begin(); it != investigadores.end(); ++it) {
-        autores.insert(it->second.getNombre)
+        autores.insert(it->second->getNombre());
     }
 
     return DTRefer(DOI, titulo, fecha, autores);
@@ -30,10 +30,10 @@ DTRefer Publicacion::getDT(){
 
 void Publicacion::agregarAutor(Investigador* investigador) {
     investigadores.insert(std::make_pair(investigador->getORCID(), investigador));
-    investigador->agregarAutor(this); //bidireccionalidad
+    investigador->agregarPublicacion(this); //bidireccionalidad
 }
 
 void Publicacion::eliminarAutor(Investigador* investigador) {
     investigadores.erase(investigador->getORCID());
-    investigador->eliminarAutor(this); // bidireccionalidad
+    investigador->eliminarPublicacion(this); // bidireccionalidad
 }

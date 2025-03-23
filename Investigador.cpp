@@ -1,6 +1,7 @@
 #include "Investigador.h"
 #include "Publicacion.h"
 
+#include <set>
 using namespace std;
 
 Investigador::Investigador(const string& o, const string& n, const string& i) : ORCID(o), nombre(n), institucion(i) {}
@@ -10,7 +11,7 @@ Investigador::~Investigador(){
 
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         Publicacion* pub = it->second;
-        pub.eliminarPublicacion(this)
+        pub->eliminarAutor(this);
     }
 
     //detalle que me acabo de acordar: hay que despues hacer un metodo para borrar del map de main
@@ -30,7 +31,7 @@ string Investigador::getInstitucion() const {
 }
 
 void Investigador::agregarPublicacion(Publicacion* publicacion) {
-    publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion))
+    publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion));
     
 }
 
