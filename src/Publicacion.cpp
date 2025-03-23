@@ -1,4 +1,4 @@
-#include "Publicacion.h"
+#include "../include/Publicacion.h"
 
 using namespace std;
 

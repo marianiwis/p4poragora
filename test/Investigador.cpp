@@ -1,4 +1,4 @@
-#include "Investigador.h"
+#include "../include/Investigador.h"
 #include "Publicacion.h"
 
 #include <set>
