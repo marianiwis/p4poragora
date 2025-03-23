@@ -7,16 +7,14 @@
 #include <set>
 #include <string>
 
-using namespace std;
-
 class Libro : public Publicacion{
     private:
-        string editorial;
-        set<string> palabrasDestacadas;
+        std::string editorial;
+        std::set<std::string> palabrasDestacadas;
     public:
         //constru
-        Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> keyWords);
+        Libro(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& editorial, const std::set<std::string>& keyWords);
        //op polimorfica
-       bool contienePalabra(string palabra);
+       bool contienePalabra(const std::string& palabra) const;
 };
 #endif /*LIBRO_H*/

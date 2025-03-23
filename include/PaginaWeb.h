@@ -6,16 +6,15 @@
 #include "DTFecha.h"
 #include <string>
 
-using namespace std;
 
 class PaginaWeb : public Publicacion{
     private:
-        string url;
-        string contenidoExtraido;
+        std::string url;
+        std::string contenidoExtraido;
     public:
         //constructor
-        PaginaWeb(string DOI, string titulo, DTFecha fecha, string url, string contenidoExtraido);
+        PaginaWeb(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& url, const std::string& contenidoExtraido);
        //op polimorfica
-       bool contienePalabra(string palabra);
+       bool contienePalabra(const std::string& palabra) const;
 };
 #endif /*PAGINAWEB_H*/

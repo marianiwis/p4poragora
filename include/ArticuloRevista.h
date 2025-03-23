@@ -6,17 +6,15 @@
 #include "DTFecha.h"
 #include <string>
 
-using namespace std;
-
 class ArticuloRevista : public Publicacion{
     private:
-        string revista;
-        string extracto;
+        std::string revista;
+        std::string extracto;
     public:
         //contruc
-        ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto);
+        ArticuloRevista(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& revista, const std::string& extracto);
         //op polimorfica
-        bool contienePalabra(string palabra);
+        bool contienePalabra(const std::string& palabra) const;
 };
 
 #endif /*ARTICULOREVISTA_H*/
