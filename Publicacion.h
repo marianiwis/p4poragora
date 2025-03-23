@@ -1,4 +1,3 @@
-//.h de la clase abstracta Publicacion
 #ifndef PUBLICACION_H
 #define PUBLICACION_H
 
@@ -13,14 +12,17 @@ class Investigador;
 
 class Publicacion{
     protected:
+
         const string DOI;        //DOI string
         string titulo;          //titulo string
         DTFecha fecha;          //datatype DTFecha fecha
         map<string, Investigador*> investigadores;
 
+
     public:
         //Constructor
         Publicacion(string DOI, string titulo, DTFecha fecha);
+
 
         //Metodos virtuales puros los dejo a ver
 
@@ -37,14 +39,16 @@ class Publicacion{
         //funciones que vienen del DCD
         DTRefer getDT();
 
+
         virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
         virtual void eliminarAutor(Investigador* investigador);
 
+
         //metodos necesariamente virtuales
         virtual bool contienePalabra(string palabra) = 0;
-
         virtual ~Publicacion() = 0;                         //Destructor virtual
+
 
 };
 
-#endif // PUBLICACION_H
+#endif

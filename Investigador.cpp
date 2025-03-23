@@ -1,10 +1,13 @@
 #include "Investigador.h"
+
 #include "Publicacion.h"
 
 #include <set>
+
 using namespace std;
 
 Investigador::Investigador(const string& o, const string& n, const string& i) : ORCID(o), nombre(n), institucion(i) {}
+
 
 Investigador::~Investigador(){
     std::map<string, Publicacion*>::iterator it;
@@ -30,6 +33,7 @@ string Investigador::getInstitucion() const {
     return institucion;
 }
 
+
 void Investigador::agregarPublicacion(Publicacion* publicacion) {
     publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion));
     
@@ -48,6 +52,7 @@ set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         Publicacion* pub = it->second;
         if ((pub->getFecha() > desde) && (pub->contienePalabra(palabra)))
+
             resultados.insert(pub->getDOI());
     }
     return resultados;

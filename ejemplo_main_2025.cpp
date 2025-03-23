@@ -1,7 +1,10 @@
-/*
 #include <iostream>
 #include <list>
 #include <map>
+#include "ArticuloRevista.h"
+#include "Libro.h"
+#include "PaginaWeb.h"
+#include "Investigador.h"
 
 std::list<Publicacion*> publicaciones;
 std::map<std::string, Publicacion*> map_publicaciones;
@@ -96,4 +99,3 @@ int main() {
 
 	return 0;
 }
-*/
