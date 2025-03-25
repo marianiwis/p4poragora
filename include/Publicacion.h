@@ -1,7 +1,11 @@
+
+//.h de la clase abstracta Publicacion
+
 #ifndef PUBLICACION_H
 #define PUBLICACION_H
 
 #include <string>
+
 #include <map>
 #include "DTRefer.h"
 #include "DTFecha.h"
@@ -23,18 +27,18 @@ class Publicacion{
         //Constructor
         Publicacion(string DOI, string titulo, DTFecha fecha);
 
-
         //Metodos virtuales puros los dejo a ver
 
         //Metodos og
         //getters
+
         virtual string getDOI();
         virtual string getTitulo();
         virtual DTFecha getFecha();
         //setters
         virtual void setDOI(string DOI);
         virtual void setTitulo(string Titulo);
-        virtual void setDOI(DTFecha Fecha);
+        virtual void setFecha(DTFecha Fecha);
 
         //funciones que vienen del DCD
         DTRefer getDT();
@@ -52,3 +56,4 @@ class Publicacion{
 };
 
 #endif
+

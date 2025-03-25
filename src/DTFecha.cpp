@@ -1,3 +1,4 @@
+
 #include "../include/DTFecha.h"
 
 DTFecha::DTFecha(int d, int m, int a) : dia(d), mes(m), anio(a) {}
@@ -47,3 +48,4 @@ std::ostream& operator<<(std::ostream &os, const DTFecha &fecha) {
     os << fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio();
     return os;
 }
+
