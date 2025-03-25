@@ -61,16 +61,23 @@ void parte_e(){
 		inv1 = new Investigador("0000-0003-1234-5678", "Carla Olivieri", "Universidad de la Republica");
 		inv2 = new Investigador("0000-0001-8765-4321", "Alberto Santos", "Instituto Tecnico");
 		//despues en la cleanUp la limpio
+
+		//ahora los guardo en el map y en la lista global
+		coleccion_guardarInvestigador(inv1);
+		coleccion_guardarInvestigador(inv2);
 }		
 
 //Imprimir en consola el resultado de la operacion toString para cada uno de los objetos Investigador creados
 void parte_f(){
-	if((inv1 != NULL) && (inv2 != NULL)){ //osea existen
-		cout << "Primer Investigador: " << inv1->toString() << endl;
-		cout << "Segundo Investigador: " << inv2->toString() << endl;
-	}else{
-		cout << "No Existen los Investigadores" << endl;
+	//antes de listar para que quede mas clean en la consola
+	std::cout << "Lista de Investigadores: " << std::endl;
+
+	//agora itero en el map para imprimir los investigadores
+	std::map<std::string, Investigador*>::iterator it = map_investigadores.begin();
+	for(it; it != map_investigadores.end(); ++it){
+		std::cout << it->second->toString() << std::endl;
 	}
+
 }
 
 void parte_g(){
@@ -88,12 +95,21 @@ void parte_j(){
 void parte_k(){
 }
 
-//se que esto no es mio pero lo necesito
+//la cleanUp de nico
 void cleanUp(){
-	delete inv1;
-	delete inv2;
-	inv1 = NULL;
-	inv2 = NULL;
+	for (std::list<Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+		delete *it;
+    }
+	publicaciones.clear();
+	//mari de atrevida
+	map_publicaciones.clear();
+
+	for (std::list<Investigador*>::iterator it = investigadores.begin(); it != investigadores.end(); ++it) {
+		delete *it;
+    }
+	investigadores.clear();
+	//mari de atrevida
+	map_investigadores.clear();
 }
 
 int main() {
