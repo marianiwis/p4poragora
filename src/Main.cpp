@@ -85,12 +85,9 @@ void parte_j(){
 
 void parte_k(){
 	std::list<Publicacion*>::iterator it;
-
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
 		std::cout << (*it)->getDT() << std::endl;
     }
-
-    
 }
 
 int main() {
