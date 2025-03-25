@@ -39,6 +39,20 @@ Publicacion* coleccion_getPublicacion(std::string DOI){
 	return map_publicaciones[DOI];
 }
 
+void cleanUp(){
+
+    for (std::list<Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+		delete *it;
+    }
+	publicaciones.clear();
+
+	for (std::list<Investigador*>::iterator it = investigadores.begin(); it != investigadores.end(); ++it) {
+		delete *it;
+    }
+	investigadores.clear();
+
+}
+
 void parte_a(){
 }
 
@@ -70,10 +84,13 @@ void parte_j(){
 }
 
 void parte_k(){
-}
+	std::list<Publicacion*>::iterator it;
 
-void cleanUp(){
-	
+    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+		std::cout << (*it)->getDT() << std::endl;
+    }
+
+    
 }
 
 int main() {
