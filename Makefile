@@ -18,7 +18,7 @@ mi_programa: $(OBJFILES)
 	$(CXX) $(CXXFLAGS) -o mi_programa $(OBJFILES)
 
 # Reglas de compilación de cada archivo .cpp a .o
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCLUDE_DIR)/%.h | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Crear la carpeta obj si no existe

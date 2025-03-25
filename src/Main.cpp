@@ -38,6 +38,10 @@ Publicacion* coleccion_getPublicacion(std::string DOI){
 	return map_publicaciones[DOI];
 }
 
+void cleanUp(){
+
+}
+
 void parte_a(){
 }
 
