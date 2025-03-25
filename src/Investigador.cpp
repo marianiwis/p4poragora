@@ -58,6 +58,9 @@ set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string
     return resultados;
 }
 
+//se tiene que imprimir asi?
+//le agregue espaciado nada mas para cuando se vea en la consola
+//solo pq me parte los ojos xd deahhhhhhhhhh
 string Investigador::toString() const {
-    return ORCID + "->" + nombre + "/" + institucion;
+    return ORCID + " -> " + nombre + " / " + institucion;
 }

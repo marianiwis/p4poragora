@@ -48,7 +48,7 @@ class Publicacion{
 
 
         //metodos necesariamente virtuales
-        virtual bool contienePalabra(const std::string& palabra) const= 0;
+        virtual bool contienePalabra(const std::string& palabra) const = 0;
         virtual ~Publicacion() = 0;                         //Destructor virtual
 
 
