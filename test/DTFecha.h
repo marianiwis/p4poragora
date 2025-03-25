@@ -1,4 +1,3 @@
-
 #ifndef DTFECHA_H
 #define DTFECHA_H
 
@@ -26,6 +25,5 @@ class DTFecha {
 };
 
 std::ostream& operator<<(std::ostream& os, const DTFecha& fecha);
-
 
 #endif

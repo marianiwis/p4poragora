@@ -1,11 +1,8 @@
-
 //.h de la clase abstracta Publicacion
-
 #ifndef PUBLICACION_H
 #define PUBLICACION_H
 
 #include <string>
-
 #include <map>
 #include "DTRefer.h"
 #include "DTFecha.h"
@@ -16,44 +13,35 @@ class Investigador;
 
 class Publicacion{
     protected:
-
         const string DOI;        //DOI string
         string titulo;          //titulo string
         DTFecha fecha;          //datatype DTFecha fecha
         map<string, Investigador*> investigadores;
 
-
     public:
         //Constructor
         Publicacion(string DOI, string titulo, DTFecha fecha);
 
-        //Metodos virtuales puros los dejo a ver
+        //Metodos es puros los dejo a ver
 
         //Metodos og
         //getters
-
-        virtual string getDOI();
-        virtual string getTitulo();
-        virtual DTFecha getFecha();
+         string getDOI();
+         string getTitulo();
+         DTFecha getFecha();
         //setters
-        virtual void setDOI(string DOI);
-        virtual void setTitulo(string Titulo);
-        virtual void setFecha(DTFecha Fecha);
+         void setDOI(string DOI);
+         void setTitulo(string Titulo);
+         void setDOI(DTFecha Fecha);
 
         //funciones que vienen del DCD
         DTRefer getDT();
 
+         void agregarAutor(Investigador* investigador); //ponemos los  en estos por las dudas xd
+         void eliminarAutor(Investigador* investigador);
 
-        virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
-        virtual void eliminarAutor(Investigador* investigador);
-
-
-        //metodos necesariamente virtuales
-        virtual bool contienePalabra(string palabra) = 0;
-        virtual ~Publicacion() = 0;                         //Destructor virtual
-
+        //metodos necesariamente es                        //Destructor 
 
 };
 
-#endif
-
+#endif // PUBLICACION_H

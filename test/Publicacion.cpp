@@ -1,4 +1,5 @@
-#include "../include/Publicacion.h"
+#include "Publicacion.h"
+#include "Investigador.h"
 
 using namespace std;
 
@@ -27,14 +28,12 @@ DTRefer Publicacion::getDT(){
     return DTRefer(DOI, titulo, fecha, autores);
 }
 
-//uso insert para evitar sobreescritura 
 void Publicacion::agregarAutor(Investigador* investigador) {
-    investigadores.insert(std::make_pair(investigador->getORCID(), investigador)); //insert god
+    investigadores.insert(std::make_pair(investigador->getORCID(), investigador));
     investigador->agregarPublicacion(this); //bidireccionalidad
 }
 
-//idem eliminacion
 void Publicacion::eliminarAutor(Investigador* investigador) {
-    investigadores.erase(investigador->getORCID()); //idem de funcionalidad del insert
+    investigadores.erase(investigador->getORCID());
     investigador->eliminarPublicacion(this); // bidireccionalidad
 }

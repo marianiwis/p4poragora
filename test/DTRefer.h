@@ -1,4 +1,3 @@
-
 #ifndef DTREFER_H
 #define DTREFER_H
 
@@ -28,4 +27,3 @@ public:
 std::ostream& operator<<(std::ostream& os, const DTRefer& dt);
 
 #endif
-

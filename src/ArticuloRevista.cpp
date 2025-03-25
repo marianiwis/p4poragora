@@ -1,3 +1,4 @@
+
 #include "ArticuloRevista.h"
 
 using namespace std;
