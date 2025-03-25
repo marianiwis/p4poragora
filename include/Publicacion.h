@@ -10,34 +10,33 @@
 #include "DTRefer.h"
 #include "DTFecha.h"
 #include "Investigador.h"
-using namespace std;
+
 
 class Investigador;
 
 class Publicacion{
     protected:
 
-        const string DOI;        //DOI string
-        string titulo;          //titulo string
+        const std::string DOI;        //DOI std::string
+        std::string titulo;          //titulo std::string
         DTFecha fecha;          //datatype DTFecha fecha
-        map<string, Investigador*> investigadores;
+        std::map<std::string, Investigador*> investigadores;
 
 
     public:
         //Constructor
-        Publicacion(string DOI, string titulo, DTFecha fecha);
+        Publicacion(std::string DOI, std::string titulo, DTFecha fecha);
 
         //Metodos virtuales puros los dejo a ver
 
         //Metodos og
         //getters
 
-        virtual string getDOI();
-        virtual string getTitulo();
+        virtual std::string getDOI();
+        virtual std::string getTitulo();
         virtual DTFecha getFecha();
         //setters
-        virtual void setDOI(string DOI);
-        virtual void setTitulo(string Titulo);
+        virtual void setTitulo(std::string Titulo);
         virtual void setFecha(DTFecha Fecha);
 
         //funciones que vienen del DCD
@@ -49,7 +48,7 @@ class Publicacion{
 
 
         //metodos necesariamente virtuales
-        virtual bool contienePalabra(string palabra) = 0;
+        virtual bool contienePalabra(const std::string& palabra) const= 0;
         virtual ~Publicacion() = 0;                         //Destructor virtual
 
 

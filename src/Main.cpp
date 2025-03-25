@@ -1,12 +1,13 @@
-#include <iostream>
-#include <list>
-#include <map>
 #include "../include/ArticuloRevista.h"
 #include "../include/Libro.h"
 #include "../include/PaginaWeb.h"
 #include "../include/Investigador.h"
 #include "../include/DTFecha.h"
 #include "../include/DTRefer.h"
+
+#include <iostream>
+#include <list>
+#include <map>
 
 std::list<Publicacion*> publicaciones;
 std::map<std::string, Publicacion*> map_publicaciones;
@@ -36,10 +37,6 @@ Investigador* coleccion_getInvestigador(std::string ORCID){
 
 Publicacion* coleccion_getPublicacion(std::string DOI){
 	return map_publicaciones[DOI];
-}
-
-void cleanUp(){
-
 }
 
 void parte_a(){
@@ -75,6 +72,9 @@ void parte_j(){
 void parte_k(){
 }
 
+void cleanUp(){
+	
+}
 
 int main() {
 	std::cout << "parte_a" <<  std::endl;
