@@ -47,12 +47,11 @@ set<string> Investigador::listarPublicaciones(const DTFecha& desde, const string
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         Publicacion* pub = it->second;
         if ((pub->getFecha() > desde) && (pub->contienePalabra(palabra)))
-
             resultados.insert(pub->getDOI());
     }
     return resultados;
 }
 
 string Investigador::toString() const {
-    return ORCID + "->" + nombre + "/" + institucion;
+    return ORCID + " -> " + nombre + " / " + institucion;
 }
