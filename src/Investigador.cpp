@@ -6,7 +6,6 @@ using namespace std;
 
 Investigador::Investigador(const string& o, const string& n, const string& i) : ORCID(o), nombre(n), institucion(i) {}
 
-
 Investigador::~Investigador(){
     std::map<string, Publicacion*>::iterator it;
 
@@ -17,7 +16,6 @@ Investigador::~Investigador(){
 
     //detalle que me acabo de acordar: hay que despues hacer un metodo para borrar del map de main
 }
-
 
 string Investigador::getORCID() const {
     return ORCID;
@@ -30,7 +28,6 @@ string Investigador::getNombre() const {
 string Investigador::getInstitucion() const {
     return institucion;
 }
-
 
 void Investigador::agregarPublicacion(Publicacion* publicacion) {
     publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion));

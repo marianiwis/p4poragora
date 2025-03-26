@@ -13,10 +13,6 @@ std::map<std::string, Publicacion*> map_publicaciones;
 std::list<Investigador*> investigadores;
 std::map<std::string, Investigador*> map_investigadores;
 
-//global variables de investigadores que despues se cleanean deah
-Investigador* inv1 = NULL;
-Investigador* inv2 = NULL;
-
 void coleccion_guardarPublicacion(Publicacion* pub){
 	publicaciones.push_back(pub);
 	std::pair<std::string, Publicacion*> entry(pub->getDOI(), pub);
@@ -87,7 +83,6 @@ void parte_b(){
 	DTFecha fechaLibro2(20, 8, 2022);
 
 	//Libros
-
     Libro* libro1 = new Libro(
         "10.2345/def456",
         "Patrones de Diseno en c++",
@@ -119,9 +114,7 @@ void parte_c(){
         "www.umlparaprincipiantes.com",
         "En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades"
     );
-
 	coleccion_guardarPublicacion(pWeb1);
-
 }
 
 /*Imprimir en consola utilizando la inserción de flujo el resultado de ejecutar la operación
@@ -141,8 +134,8 @@ void parte_d(){
 //crear los objetos de clase Investigador hago un par para uarlos en la parte f
 void parte_e(){
 
-		inv1 = new Investigador("0000-0003-1234-5678", "Carla Olivieri", "Universidad de la Republica");
-		inv2 = new Investigador("0000-0001-8765-4321", "Alberto Santos", "Instituto Tecnico");
+		Investigador* inv1 = new Investigador("0000-0003-1234-5678", "Carla Olivieri", "Universidad de la Republica");
+		Investigador* inv2 = new Investigador("0000-0001-8765-4321", "Alberto Santos", "Instituto Tecnico");
 		//despues en la cleanUp la limpio
 
 		//ahora los guardo en el map y en la lista global
@@ -191,22 +184,23 @@ void parte_j() {
 }
 
 void parte_k(){
+	parte_d();
 }
 
 //la cleanUp de nico
 void cleanUp(){
 	for (std::list<Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
 		delete *it;
+		*it = NULL;
     }
 	publicaciones.clear();
-	//mari de atrevida
 	map_publicaciones.clear();
 
 	for (std::list<Investigador*>::iterator it = investigadores.begin(); it != investigadores.end(); ++it) {
 		delete *it;
+		*it = NULL;
     }
 	investigadores.clear();
-	//mari de atrevida
 	map_investigadores.clear();
 }
 

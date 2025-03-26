@@ -13,7 +13,7 @@ class Publicacion{
     protected:
         const std::string DOI;        //DOI std::string
         std::string titulo;          //titulo std::string
-        DTFecha fecha;          //datatype DTFecha fecha
+        DTFecha fecha;              //datatype DTFecha fecha
         std::map<std::string, Investigador*> investigadores;
     public:
         //Constructor
