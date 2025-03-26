@@ -4,7 +4,6 @@ using namespace std;
 
 Publicacion::Publicacion(const string d, const string t, const DTFecha f) : DOI(d), titulo(t), fecha(f) {}
 
-
 void Publicacion::setTitulo(std::string nuevoTitulo) {
     this->titulo = nuevoTitulo;
 }

@@ -1,4 +1,3 @@
-
 #ifndef DTFECHA_H
 #define DTFECHA_H
 
@@ -7,7 +6,6 @@
 class DTFecha {
     private:
         int dia, mes, anio;
-    
     public:
         DTFecha(int dia, int mes, int anio);
         
@@ -26,6 +24,5 @@ class DTFecha {
 };
 
 std::ostream& operator<<(std::ostream& os, const DTFecha& fecha);
-
 
 #endif

@@ -1,5 +1,4 @@
-
-#include "ArticuloRevista.h"
+#include "../include/ArticuloRevista.h"
 
 using namespace std;
 

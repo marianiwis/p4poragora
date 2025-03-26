@@ -1,14 +1,11 @@
-
 #ifndef INVESTIGADOR_H
 #define INVESTIGADOR_H
 
 #include <string>
 #include <map>
-
 #include <set>
 #include "DTFecha.h"
 #include "Publicacion.h"
-
 
 class Publicacion;
 
@@ -34,6 +31,5 @@ class Investigador{
         string toString() const;
         set<string> listarPublicaciones(const DTFecha& desde, const string& palabra);
 };
-
 
 #endif

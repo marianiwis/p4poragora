@@ -1,4 +1,3 @@
-
 #ifndef DTREFER_H
 #define DTREFER_H
 
@@ -11,8 +10,7 @@ class DTFecha;
 
 class DTRefer {
 private:
-    std::string doi;
-    std::string titulo;
+    std::string doi, titulo;
     DTFecha fecha;
     std::set<std::string> autores;
 public:
@@ -28,4 +26,3 @@ public:
 std::ostream& operator<<(std::ostream& os, const DTRefer& dt);
 
 #endif
-

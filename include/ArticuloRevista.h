@@ -2,15 +2,13 @@
 #define ARTICULOREVISTA_H
 
 #include "Publicacion.h"
-
 #include "DTRefer.h"
 #include "DTFecha.h"
 #include <string>
 
 class ArticuloRevista : public Publicacion{
     private:
-        std::string revista;
-        std::string extracto;
+        std::string revista, extracto;
     public:
         //contruc
         ArticuloRevista(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& revista, const std::string& extracto);
