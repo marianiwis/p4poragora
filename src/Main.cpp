@@ -56,13 +56,12 @@ void parte_c(){
 getDT() para cada uno de los objetos Publicacion creados.*/
 void parte_d(){
 	std::list<Publicacion*>::iterator it;
-	it = publicaciones.begin();
 
 	if(publicaciones.empty()){ //aca depende como le ponga el nombre marcos globalmente
 		std::cout << "No hay publicaciones para mostrar." << std::endl;
         return;
 	}
-    for (it ; it != publicaciones.end(); ++it) {
+    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
 		std::cout << (*it)->getDT() << std::endl;
     }
 }
