@@ -8,12 +8,10 @@ Investigador::Investigador(const string& o, const string& n, const string& i) : 
 
 Investigador::~Investigador(){
     std::map<string, Publicacion*>::iterator it;
-
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         Publicacion* pub = it->second;
         pub->eliminarAutor(this);
     }
-
     //detalle que me acabo de acordar: hay que despues hacer un metodo para borrar del map de main
 }
 

@@ -2,7 +2,6 @@
 #define ARTICULOREVISTA_H
 
 #include "Publicacion.h"
-#include "DTRefer.h"
 #include "DTFecha.h"
 #include <string>
 

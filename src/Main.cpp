@@ -148,7 +148,7 @@ void parte_f(){
 	//antes de listar para que quede mas clean en la consola
 	std::cout << "Lista de Investigadores: " << std::endl;
 
-	//agora itero en el map para imprimir los investigadores
+	//ahora itero en el map para imprimir los investigadores
 	std::map<std::string, Investigador*>::iterator it;
 	for(it = map_investigadores.begin(); it != map_investigadores.end(); ++it){
 		std::cout << it->second->toString() << std::endl;
@@ -168,19 +168,11 @@ void parte_i() {
 }
 
 void parte_j() {
-    // Obtener el investigador con ORCID "0000-0003-1234-5678"
     Investigador* investigador = coleccion_getInvestigador("0000-0003-1234-5678");
-    
-    // Crear la fecha 1/1/2020
     DTFecha desde(1, 1, 2020);
-    
-    // Invocar listarPublicaciones con la fecha y la palabra "UML"
     std::set<std::string> resultados = investigador->listarPublicaciones(desde, "UML");
-    
-    // Imprimir los resultados, un string por línea
-    for (std::set<std::string>::iterator it = resultados.begin(); it != resultados.end(); ++it) {
+    for (std::set<std::string>::iterator it = resultados.begin(); it != resultados.end(); ++it)
         std::cout << *it << std::endl;
-    }
 }
 
 void parte_k(){

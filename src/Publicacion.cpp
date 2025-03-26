@@ -31,11 +31,8 @@ DTFecha Publicacion::getFecha(){
 DTRefer Publicacion::getDT(){
     std::set<std::string> autores;
     std::map<string, Investigador*>::iterator it;
-
-    for (it = investigadores.begin(); it != investigadores.end(); ++it) {
+    for (it = investigadores.begin(); it != investigadores.end(); ++it)
         autores.insert(it->second->getNombre());
-    }
-
     return DTRefer(DOI, titulo, fecha, autores);
 }
 
