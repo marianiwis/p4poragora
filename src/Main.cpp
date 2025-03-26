@@ -52,7 +52,19 @@ void parte_b(){
 void parte_c(){
 }
 
+/*Imprimir en consola utilizando la inserción de flujo el resultado de ejecutar la operación
+getDT() para cada uno de los objetos Publicacion creados.*/
 void parte_d(){
+	std::list<Publicacion*>::iterator it;
+	it = publicaciones.begin();
+
+	if(publicaciones.empty()){ //aca depende como le ponga el nombre marcos globalmente
+		std::cout << "No hay publicaciones para mostrar." << std::endl;
+        return;
+	}
+    for (it ; it != publicaciones.end(); ++it) {
+		std::cout << (*it)->getDT() << std::endl;
+    }
 }
 
 //crear los objetos de clase Investigador hago un par para uarlos en la parte f
