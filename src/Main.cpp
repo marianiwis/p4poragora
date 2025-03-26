@@ -54,13 +54,12 @@ void parte_c(){
 getDT() para cada uno de los objetos Publicacion creados.*/
 void parte_d(){
 	std::list<Publicacion*>::iterator it;
-	it = publicaciones.begin();
 
 	if(publicaciones.empty()){ //aca depende como le ponga el nombre marcos globalmente
 		std::cout << "No hay publicaciones para mostrar." << std::endl;
         return;
 	}
-    for (it ; it != publicaciones.end(); ++it) {
+    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
 		std::cout << (*it)->getDT() << std::endl;
     }
 }
@@ -83,8 +82,8 @@ void parte_f(){
 	std::cout << "Lista de Investigadores: " << std::endl;
 
 	//agora itero en el map para imprimir los investigadores
-	std::map<std::string, Investigador*>::iterator it = map_investigadores.begin();
-	for(it; it != map_investigadores.end(); ++it){
+	std::map<std::string, Investigador*>::iterator it;
+	for(it = map_investigadores.begin(); it != map_investigadores.end(); ++it){
 		std::cout << it->second->toString() << std::endl;
 	}
 
