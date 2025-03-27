@@ -157,9 +157,22 @@ void parte_f(){
 }
 
 void parte_g(){
-}
+	coleccion_getPublicacion("10.1234/abc123")->agregarAutor(coleccion_getInvestigador("0000-0003-1234-5678"));
+	coleccion_getPublicacion("10.1234/abc123")->agregarAutor(coleccion_getInvestigador("0000-0001-8765-4321"));
+	coleccion_getPublicacion("10.4567/jkl012")->agregarAutor(coleccion_getInvestigador("0000-0001-8765-4321"));
+	coleccion_getPublicacion("10.4567/jkl012")->agregarAutor(coleccion_getInvestigador("0000-0003-1234-5678"));
+	coleccion_getPublicacion("10.5678/mno345")->agregarAutor(coleccion_getInvestigador("0000-0003-1234-5678"));
+	coleccion_getPublicacion("10.3456/ghi789")->agregarAutor(coleccion_getInvestigador("0000-0003-1234-5678"));
+	coleccion_getPublicacion("10.2345/def456")->agregarAutor(coleccion_getInvestigador("0000-0001-8765-4321"));
+}	
 
 void parte_h(){
+	DTFecha fechaCar(10,12,2023);
+	std::set<std::string> pubCar = coleccion_getInvestigador("0000-0003-1234-5678")->listarPublicaciones(fechaCar, "UML");
+	std::set<std::string>::iterator it;
+	for (it = pubCar.begin(); it != pubCar.end(); ++it){
+		std::cout << *it << std::endl;
+	}
 }
 
 void parte_i() {
