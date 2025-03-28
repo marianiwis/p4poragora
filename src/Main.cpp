@@ -21,6 +21,7 @@ void coleccion_guardarPublicacion(Publicacion* pub){
 void coleccion_eliminarPublicacion(Publicacion* pub){
 	publicaciones.remove(pub);
 	map_publicaciones.erase(pub->getDOI());
+	delete pub;
 }
 
 void coleccion_guardarInvestigador(Investigador* inv){

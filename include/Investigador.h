@@ -8,28 +8,26 @@
 #include "Publicacion.h"
 
 class Publicacion;
-
-using namespace std;
 //el const en public hace que las funciones sean constantes no sus resultados
  
 class Investigador{
     private:
-        const string ORCID;
-        string nombre, institucion;
-        map<string, Publicacion*> publicaciones;
+        const std::string ORCID;
+        std::string nombre, institucion;
+        std::map<std::string, Publicacion*> publicaciones;
     public:
-        Investigador(const string& ORCID, const string& nombre, const string& institucion);
+        Investigador(const std::string& ORCID, const std::string& nombre, const std::string& institucion);
         ~Investigador();
 
-        string getORCID() const;
-        string getNombre() const;
-        string getInstitucion() const;
+        std::string getORCID() const;
+        std::string getNombre() const;
+        std::string getInstitucion() const;
 
         void agregarPublicacion(Publicacion* pub);
         void eliminarPublicacion(Publicacion* pub);
 
-        string toString() const;
-        set<string> listarPublicaciones(const DTFecha& desde, const string& palabra);
+        std::string toString() const;
+        std::set<std::string> listarPublicaciones(const DTFecha& desde, const std::string& palabra);
 };
 
 #endif

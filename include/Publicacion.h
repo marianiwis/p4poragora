@@ -17,22 +17,22 @@ class Publicacion{
         std::map<std::string, Investigador*> investigadores;
     public:
         //Constructor
-        Publicacion(std::string DOI, std::string titulo, DTFecha fecha);
+        Publicacion(const std::string& DOI, const std::string& titulo, const DTFecha& fecha);
 
         //Metodos virtuales puros los dejo a ver
 
         //Metodos og
         //getters
 
-        virtual std::string getDOI();
-        virtual std::string getTitulo();
-        virtual DTFecha getFecha();
+        virtual std::string getDOI() const;
+        virtual std::string getTitulo() const;
+        virtual DTFecha getFecha() const;
         //setters
-        virtual void setTitulo(std::string Titulo);
-        virtual void setFecha(DTFecha Fecha);
+        virtual void setTitulo(const std::string& Titulo);
+        virtual void setFecha(const DTFecha& Fecha);
 
         //funciones que vienen del DCD
-        DTRefer getDT();
+        DTRefer getDT() const;
 
         virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
         virtual void eliminarAutor(Investigador* investigador);
