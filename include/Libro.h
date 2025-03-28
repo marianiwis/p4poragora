@@ -14,7 +14,7 @@ class Libro : public Publicacion{
         //constru
         Libro(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& editorial, const std::set<std::string>& keyWords);
         //op polimorfica
-        bool contienePalabra(const std::string& palabra) const;
+        bool contienePalabra(const std::string& palabra);
 };
 
 #endif

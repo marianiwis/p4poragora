@@ -12,7 +12,7 @@ class PaginaWeb : public Publicacion{
         //constructor
         PaginaWeb(const std::string& DOI, const std::string& titulo, const DTFecha& fecha, const std::string& url, const std::string& contenidoExtraido);
        //op polimorfica
-       bool contienePalabra(const std::string& palabra) const;
+       bool contienePalabra(const std::string& palabra);
 };
 
 #endif

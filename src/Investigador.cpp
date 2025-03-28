@@ -28,13 +28,11 @@ string Investigador::getInstitucion() const {
 }
 
 void Investigador::agregarPublicacion(Publicacion* publicacion) {
-    publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion));
-    
+    publicaciones.insert(std::make_pair(publicacion->getDOI(), publicacion)); 
 }
 
 void Investigador::eliminarPublicacion(Publicacion* publicacion) {
     publicaciones.erase(publicacion->getDOI());
-    
 }
 
 //comentario mari: no me gustan los const antes de las variables que pasamos por las funciones

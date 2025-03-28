@@ -18,10 +18,14 @@ void coleccion_guardarPublicacion(Publicacion* pub){
 	std::pair<std::string, Publicacion*> entry(pub->getDOI(), pub);
     map_publicaciones.insert(entry);
 }
-void coleccion_eliminarPublicacion(Publicacion* pub){
-	publicaciones.remove(pub);
-	map_publicaciones.erase(pub->getDOI());
-	delete pub;
+
+void coleccion_eliminarPublicacion(Publicacion* pub) {
+    if (pub) {
+        pub->removerAutores();
+        publicaciones.remove(pub);
+        map_publicaciones.erase(pub->getDOI());
+        delete pub;
+    }
 }
 
 void coleccion_guardarInvestigador(Investigador* inv){
@@ -178,7 +182,7 @@ void parte_h(){
 
 void parte_i() {
     Publicacion* p2 = coleccion_getPublicacion("10.4567/jkl012");
-    coleccion_eliminarPublicacion(p2);
+    coleccion_eliminarPublicacion(p2); //eliminarPublicacion solo elimina la publicacion de la coleccion, pero no su memoria.
 }
 
 void parte_j() {
@@ -197,14 +201,12 @@ void parte_k(){
 void cleanUp(){
 	for (std::list<Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
 		delete *it;
-		*it = NULL;
     }
 	publicaciones.clear();
 	map_publicaciones.clear();
 
 	for (std::list<Investigador*>::iterator it = investigadores.begin(); it != investigadores.end(); ++it) {
 		delete *it;
-		*it = NULL;
     }
 	investigadores.clear();
 	map_investigadores.clear();

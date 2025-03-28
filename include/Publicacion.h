@@ -33,12 +33,14 @@ class Publicacion{
 
         //funciones que vienen del DCD
         DTRefer getDT() const;
+        std::map<std::string, Investigador*> getInvestigadores() const;
 
-        virtual void agregarAutor(Investigador* investigador); //ponemos los virtual en estos por las dudas xd
-        virtual void eliminarAutor(Investigador* investigador);
+        void agregarAutor(Investigador* investigador);
+        void eliminarAutor(Investigador* investigador);
+        void removerAutores();
 
         //metodos necesariamente virtuales
-        virtual bool contienePalabra(const std::string& palabra) const= 0;
+        virtual bool contienePalabra(const std::string& palabra) = 0;
         virtual ~Publicacion() = 0;                         //Destructor virtual
 };
 
