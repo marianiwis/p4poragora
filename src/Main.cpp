@@ -20,12 +20,8 @@ void coleccion_guardarPublicacion(Publicacion* pub){
 }
 
 void coleccion_eliminarPublicacion(Publicacion* pub) {
-    if (pub) {
-        pub->removerAutores();
-        publicaciones.remove(pub);
-        map_publicaciones.erase(pub->getDOI());
-        delete pub;
-    }
+    publicaciones.remove(pub);
+    map_publicaciones.erase(pub->getDOI());
 }
 
 void coleccion_guardarInvestigador(Investigador* inv){
@@ -40,6 +36,11 @@ Investigador* coleccion_getInvestigador(std::string ORCID){
 
 Publicacion* coleccion_getPublicacion(std::string DOI){
 	return map_publicaciones[DOI];
+}
+
+void eliminarPublicacion(Publicacion* pub){
+	coleccion_eliminarPublicacion(pub);
+	delete pub;
 }
 
 //Crear los siguientes objetos de la clase ArticuloRevista (con el constructor por parámetros):
@@ -182,7 +183,7 @@ void parte_h(){
 
 void parte_i() {
     Publicacion* p2 = coleccion_getPublicacion("10.4567/jkl012");
-    coleccion_eliminarPublicacion(p2); //eliminarPublicacion solo elimina la publicacion de la coleccion, pero no su memoria.
+    eliminarPublicacion(p2);
 }
 
 void parte_j() {
