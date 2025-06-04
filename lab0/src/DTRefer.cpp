@@ -2,7 +2,7 @@
 
 using namespace std;
 
-DTRefer::DTRefer(string d, string t, DTFecha f, set<string> a) : doi(d), titulo(t), fecha(f), autores(a) {}
+DTRefer::DTRefer(const string& d, const string& t, const DTFecha& f, const set<string>& a) : doi(d), titulo(t), fecha(f), autores(a) {}
 
 string DTRefer::getDoi() const {
     return doi;
